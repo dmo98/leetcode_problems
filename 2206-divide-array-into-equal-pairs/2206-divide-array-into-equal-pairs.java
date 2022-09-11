@@ -1,14 +1,11 @@
-class Solution:
-    def divideArray(self, nums: List[int]) -> bool:
-        elementCounts = {}
-        for i in range(len(nums)):
-            if nums[i] not in elementCounts:
-                elementCounts[nums[i]] = 0
-            elementCounts[nums[i]] += 1
-        
-        for num in elementCounts.keys():
-            if elementCounts[num]%2 == 1:
-                return False
-            
-        return True
-        
+class Solution {
+    public boolean divideArray(int[] nums) {
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length; i+=2){
+            if (nums[i] != nums[i+1]){
+                return false;
+            }
+        }
+        return true;
+    }
+}
