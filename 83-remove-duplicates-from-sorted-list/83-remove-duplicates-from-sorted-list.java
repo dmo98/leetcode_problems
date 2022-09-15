@@ -14,27 +14,38 @@ class Solution {
         if (head == null) {
             return null;
         }
-        ArrayList<Integer> uniqueNums = new ArrayList<Integer>();
         ListNode currentNode = head;
-        
-        uniqueNums.add(currentNode.val);
-        currentNode = currentNode.next;
-        
-        while (currentNode != null){
-            if (currentNode.val != uniqueNums.get(uniqueNums.size()-1)){
-                uniqueNums.add(currentNode.val);
+        while (currentNode.next != null) {
+            if (currentNode.val == currentNode.next.val) {
+                currentNode.next = currentNode.next.next;
             }
-            currentNode = currentNode.next;
+            else {
+                currentNode = currentNode.next;
+            }
         }
+        return head;
+        // ORIGINAL METHOD WAS INEFFICIENT
+//         ArrayList<Integer> uniqueNums = new ArrayList<Integer>();
+//         ListNode currentNode = head;
         
-        ListNode output = new ListNode(uniqueNums.get(0));
-        currentNode = output;
-        for (int i = 1; i < uniqueNums.size(); i++){
-            currentNode.next = new ListNode(uniqueNums.get(i));
-            currentNode = currentNode.next;
-        }
-        currentNode.next = null;
+//         uniqueNums.add(currentNode.val);
+//         currentNode = currentNode.next;
         
-        return output;
+//         while (currentNode != null){
+//             if (currentNode.val != uniqueNums.get(uniqueNums.size()-1)){
+//                 uniqueNums.add(currentNode.val);
+//             }
+//             currentNode = currentNode.next;
+//         }
+        
+//         ListNode output = new ListNode(uniqueNums.get(0));
+//         currentNode = output;
+//         for (int i = 1; i < uniqueNums.size(); i++){
+//             currentNode.next = new ListNode(uniqueNums.get(i));
+//             currentNode = currentNode.next;
+//         }
+//         currentNode.next = null;
+        
+//         return output;
     }
 }
