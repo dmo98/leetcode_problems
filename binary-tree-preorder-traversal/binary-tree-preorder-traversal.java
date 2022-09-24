@@ -20,11 +20,12 @@ class Solution {
     List<Integer> result = new ArrayList<Integer>();
     public List<Integer> preorderTraversal(TreeNode root) {
         if (root == null){
-            return new ArrayList<Integer>();
+            return result;
         }
         result.add(root.val);
         preorderTraversal(root.left);
         preorderTraversal(root.right);
+        System.out.println(result);
         return result;
     }
 }
