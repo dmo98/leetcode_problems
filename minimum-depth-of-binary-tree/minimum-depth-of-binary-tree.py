@@ -6,21 +6,19 @@
 #         self.right = right
 class Solution:
     def minDepth(self, root: Optional[TreeNode]) -> int:
-        # Recursive helper function: 
-        # base case -> empty tree, leaf
+        # Recursive approach 
+        # base case -> empty tree, leaf node
         # recurrence relation -> minDepth(root) = 1 + min(minDepth(root.left) ,minDepth(root.right))
-        def minDepthHelper(node, current_minimum):
-            if node is None:
-                return 0
-            if node.left is None and node.right is None:
-                return 1
-            left = minDepthHelper(node.left, current_minimum + 1)
-            right = minDepthHelper(node.right, current_minimum + 1)
-            
-            if min(left, right) != 0:
-                return 1 + min(left, right)
-            else:
-                return 1 + max(left, right)
+        if root is None:
+            return 0
+        if root.left is None and root.right is None:
+            return 1
+        left = self.minDepth(root.left)
+        right = self.minDepth(root.right)
         
-        return minDepthHelper(root, 0)
+        # deals with the case where one of the subtrees is None. It shouldn't contribute to the minDepth based on the definition of minDepth in the problem
+        if min(left, right) != 0:
+            return 1 + min(left, right)
+        else:
+            return 1 + max(left, right)
         
