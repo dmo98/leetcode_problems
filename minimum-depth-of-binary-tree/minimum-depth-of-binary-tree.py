@@ -7,12 +7,10 @@
 class Solution:
     def minDepth(self, root: Optional[TreeNode]) -> int:
         # Recursive DFS approach
-        # base case -> empty tree, leaf node
+        # base case -> empty tree
         # recurrence relation -> minDepth(root) = 1 + min(minDepth(root.left) ,minDepth(root.right))
         if root is None:
             return 0
-        if root.left is None and root.right is None:
-            return 1
         left = self.minDepth(root.left)
         right = self.minDepth(root.right)
         
