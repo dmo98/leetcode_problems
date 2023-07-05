@@ -6,7 +6,7 @@
 #         self.right = right
 class Solution:
     def minDepth(self, root: Optional[TreeNode]) -> int:
-        # Recursive approach 
+        # Recursive DFS approach
         # base case -> empty tree, leaf node
         # recurrence relation -> minDepth(root) = 1 + min(minDepth(root.left) ,minDepth(root.right))
         if root is None:
