@@ -14,7 +14,7 @@ class Solution:
                 return closestSoFar
             
             if target < node.val:
-                print('left')
+                # print('left')
                 # traverse left sub-tree and update closest so far
                 if abs(node.val - target) <= abs(closestSoFar - target):
                     if abs(node.val - target) == abs(closestSoFar - target):
@@ -25,7 +25,7 @@ class Solution:
                 return closestValueHelper(node.left, target, closestSoFar)
                 
             else:
-                print('right')
+                # print('right')
                 # traverse right sub-tree and update closest so far
                 if abs(node.val - target) <= abs(closestSoFar - target):
                     if abs(node.val - target) == abs(closestSoFar - target):
