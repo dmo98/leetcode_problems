@@ -8,6 +8,8 @@ class Solution:
             for neighbor in graph[node]:
                 if neighbor not in seen:
                     seen.add(neighbor)
+                    if neighbor == destination:
+                        break
                     dfs(neighbor)
         
         # construct the graph
