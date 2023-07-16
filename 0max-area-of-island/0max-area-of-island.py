@@ -11,15 +11,15 @@ class Solution:
                 return True
             return False
         
-        def dfs(row, col, area):
+        def dfs(row, col):
             # returns the size of the connected component that the cell at (row, col) belongs to
-            area += 1
+            area = 1
             
             for dx, dy in adjacent_cells:
                 new_row, new_col = row + dx, col + dy
                 if isValid(new_row, new_col) and (new_row, new_col) not in seen:
                     seen.add((new_row, new_col))
-                    area = dfs(new_row, new_col, area)
+                    area += dfs(new_row, new_col)
                 
             return area
                         
@@ -31,7 +31,7 @@ class Solution:
             for col in range(n):
                 if grid[row][col] == 1 and (row, col) not in seen:
                     seen.add((row, col))
-                    area = dfs(row, col, 0)
+                    area = dfs(row, col)
                     maxArea = max(area, maxArea)
         
         return maxArea
