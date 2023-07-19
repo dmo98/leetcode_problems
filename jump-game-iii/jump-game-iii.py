@@ -16,6 +16,8 @@ class Solution:
             # returns True if the element 0 can be reached from 'index'
             if arr[index] == 0:
                 self.answer = True
+            
+            if self.answer:
                 return True
             
             for neighbor in getNeighborIndices(index):
