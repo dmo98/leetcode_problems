@@ -9,14 +9,20 @@ class Solution:
             if truckSize <= 0:
                 break
             
-            while truckSize > 0:
-                if ordered_boxes[i][0] > 0:
-                    total_units += ordered_boxes[i][1]
-                    ordered_boxes[i][0] -= 1
-                    
-                    truckSize -= 1
-                else:
-                    break
+            elif truckSize >= ordered_boxes[i][0]:
+                total_units += ordered_boxes[i][0] * ordered_boxes[i][1]
+                truckSize -= ordered_boxes[i][0]
+                ordered_boxes[i][0] = 0
+                
+            else:
+                while truckSize > 0:
+                    if ordered_boxes[i][0] > 0:
+                        total_units += ordered_boxes[i][1]
+                        ordered_boxes[i][0] -= 1
+
+                        truckSize -= 1
+                    else:
+                        break
                     
         return total_units
         
