@@ -17,7 +17,7 @@ class Solution:
             if len(curr) == len(digits):
                 # edge case: empty string passed in
                 if digits == "":
-                    return []
+                    return 
                 answer.append("".join(curr))
                 return
             
