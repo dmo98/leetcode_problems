@@ -2,7 +2,7 @@ from functools import cache
 
 class Solution:
     def climbStairs(self, n: int) -> int:
-        # Approach: Bottom-up DP
+        # Approach: Bottom-up DP. Can improve space complexity to O(1) since recurrence relation is static, by storing last two values in variables instead of the entire table.
         dp = [1] * (n+1)
         
         # base cases are implicit: dp[0] = dp[1] = 1
