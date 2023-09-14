@@ -1,7 +1,5 @@
 class Solution:
     def reformatDate(self, date: str) -> str:
-        items = date.split(" ")
-        
         months = {
             'Jan':'01',
             'Feb':'02',
@@ -17,9 +15,10 @@ class Solution:
             'Dec':'12'
         }
         
-        year = items[2]
-        month = months[items[1]]
-        day = items[0][:-2]
+        day, month, year = date.split(" ")
+        
+        month = months[month]
+        day = day[:-2]
         if len(day) == 1:
             day = '0'+day
         
