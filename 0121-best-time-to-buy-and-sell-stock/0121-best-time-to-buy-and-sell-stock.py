@@ -15,7 +15,7 @@ class Solution:
                 
         
         
-#         # DP approach: TLE
+#         # DP approach:
 #         def dp(i, bought=False):
 #             # Returns the max profit that can be obtained from day i onwards
             
